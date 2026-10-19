@@ -1,0 +1,79 @@
+/* ==========================================================================
+   ABSTRACTS: DESIGN TOKENS & VARIABLES
+   ========================================================================== */
+
+:root {
+  /* Core Color Tokens */
+  --bg-dark: #070a12;
+  --bg-darker: #04060a;
+  --bg-card: rgba(13, 20, 36, 0.78);
+  --bg-card-hover: rgba(22, 34, 60, 0.88);
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-glass-light: rgba(255, 255, 255, 0.16);
+
+  /* Text Tokens */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+
+  /* Accent Tokens */
+  --cyan-primary: #38bdf8;
+  --cyan-glow: rgba(56, 189, 248, 0.35);
+  --purple-primary: #c084fc;
+  --purple-glow: rgba(192, 132, 252, 0.35);
+  --amber-primary: #f59e0b;
+  --amber-glow: rgba(245, 158, 11, 0.35);
+  --emerald-primary: #10b981;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
+  --rose-primary: #f43f5e;
+  --rose-glow: rgba(244, 63, 94, 0.35);
+
+  /* Pokémon Type Tokens */
+  --type-normal: #94a3b8;
+  --type-fire: #f97316;
+  --type-water: #38bdf8;
+  --type-grass: #22c55e;
+  --type-electric: #eab308;
+  --type-ice: #67e8f9;
+  --type-fighting: #e11d48;
+  --type-poison: #a855f7;
+  --type-ground: #d97706;
+  --type-flying: #818cf8;
+  --type-psychic: #ec4899;
+  --type-bug: #84cc16;
+  --type-rock: #78716c;
+  --type-ghost: #7c3aed;
+  --type-dragon: #6366f1;
+  --type-steel: #64748b;
+  --type-dark: #334155;
+  --type-fairy: #f472b6;
+
+  /* Font Families */
+  --font-main: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Elevations & Radii */
+  --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
+  --shadow-glow-cyan: 0 0 20px rgba(56, 189, 248, 0.3);
+  --shadow-glow-purple: 0 0 20px rgba(192, 132, 252, 0.3);
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
+  /* Bootstrap Bridge */
+  --bs-body-bg: var(--bg-dark);
+  --bs-body-color: var(--text-main);
+  --bs-body-font-family: var(--font-main);
+  --bs-primary: #38bdf8;
+  --bs-primary-rgb: 56, 189, 248;
+  --bs-info: #c084fc;
+  --bs-info-rgb: 192, 132, 252;
+  --bs-warning: #f59e0b;
+  --bs-warning-rgb: 245, 158, 11;
+  --bs-success: #10b981;
+  --bs-success-rgb: 16, 185, 129;
+  --bs-card-bg: var(--bg-card);
+  --bs-card-border-color: var(--border-glass);
+  --bs-border-color: var(--border-glass);
+}

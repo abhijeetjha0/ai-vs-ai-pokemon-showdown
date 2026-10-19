@@ -28,4 +28,11 @@ export default defineConfig({
   optimizeDeps: {
     include: ['@pkmn/sim', '@pkmn/data', '@pkmn/dex', '@pkmn/randoms', '@pkmn/img'],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern-compiler',
+      },
+    },
+  },
 });

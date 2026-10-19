@@ -1,0 +1,29 @@
+/* ==========================================================================
+   AI VS AI POKÉMON SHOWDOWN — CYBER DARK GLASSMORPHISM DESIGN SYSTEM
+   ========================================================================== */
+
+// 1. Abstracts (Variables, Mixins, Animations)
+@use 'abstracts' as *;
+
+// 2. Base Styles & Global Resets
+@use 'base/reset';
+@use 'base/atmosphere';
+@use 'base/utilities';
+
+// 3. Layout Grid & Header
+@use 'layout/header';
+@use 'layout/layout';
+
+// 4. Component Styles
+@use 'components/battle-stage';
+@use 'components/pokemon-hud';
+@use 'components/advantage-bar';
+@use 'components/manual-hud';
+@use 'components/player-card';
+@use 'components/arbiter-card';
+@use 'components/controls';
+@use 'components/stream';
+@use 'components/modals';
+
+// 5. Responsive Media Queries
+@use 'responsive/responsive';

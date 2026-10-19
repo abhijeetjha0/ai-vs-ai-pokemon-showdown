@@ -1,0 +1,188 @@
+/* ==========================================================================
+   COMPONENTS: AI THOUGHTS STREAM & COMBAT LOG
+   ========================================================================== */
+
+.history-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 380px;
+  max-height: none;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+
+  @media (max-width: 992px) {
+    min-height: 380px;
+    max-height: 520px;
+  }
+
+  > .card-body {
+    flex: 1 1 0;
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+}
+
+.thoughts-stream-container {
+  overflow-y: auto;
+  padding: 8px;
+}
+
+.thoughts-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  color: var(--text-dim);
+  text-align: center;
+  gap: 8px;
+  font-size: 0.8rem;
+}
+
+.thought-stream-card {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  .card-body {
+    height: auto;
+    overflow: visible;
+  }
+}
+
+.stream-white { 
+  border-left: 3px solid var(--cyan-primary) !important; 
+}
+
+.stream-black { 
+  border-left: 3px solid var(--purple-primary) !important; 
+}
+
+.stream-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.stream-model-name {
+  color: var(--text-muted);
+}
+
+.stream-proposal-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stream-move-badge {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: rgba(56, 189, 248, 0.2);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  padding: 2px 7px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.stream-reasoning-text {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+}
+
+.stream-arbiter-verdict-box {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.78rem;
+}
+
+.stream-arbiter-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.stream-grade-badge {
+  margin-left: auto;
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+
+  &.grade-brilliant {
+    color: #34d399;
+    background: rgba(16, 185, 129, 0.18);
+    border: 1px solid rgba(16, 185, 129, 0.45);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+  }
+
+  &.grade-best {
+    color: var(--cyan-primary);
+    background: rgba(6, 182, 212, 0.18);
+    border: 1px solid rgba(6, 182, 212, 0.45);
+    box-shadow: 0 0 8px var(--cyan-glow);
+  }
+
+  &.grade-good,
+  &.grade-tactical-read {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.18);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.2);
+  }
+
+  &.grade-inaccuracy {
+    color: #fbbf24;
+    background: rgba(245, 158, 11, 0.18);
+    border: 1px solid rgba(245, 158, 11, 0.45);
+    box-shadow: 0 0 8px rgba(245, 158, 11, 0.2);
+  }
+
+  &.grade-blunder {
+    color: #f87171;
+    background: rgba(244, 63, 94, 0.18);
+    border: 1px solid rgba(244, 63, 94, 0.45);
+    box-shadow: 0 0 8px rgba(244, 63, 94, 0.2);
+  }
+
+  &.grade-solid {
+    color: #94a3b8;
+    background: rgba(148, 163, 184, 0.15);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+  }
+}
+
+.stream-arbiter-commentary {
+  font-size: 0.72rem;
+  line-height: 1.25;
+}
+
+/* Combat Events in Stream */
+.stream-event-item {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: var(--radius-sm);
+  transition: all 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.04) !important;
+  }
+}
+
+.stream-turn-divider {
+  user-select: none;
+}

@@ -1,0 +1,289 @@
+/* ==========================================================================
+   COMPONENTS: 3D CYBER POKÉMON STADIUM & BATTLE STAGE
+   ========================================================================== */
+
+.battle-stage-card {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 500px;
+  background: radial-gradient(ellipse at 50% 30%, #121c33 0%, #0a0f1e 65%, #050812 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+}
+
+.stadium-viewport {
+  position: relative;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 440px;
+  overflow: hidden;
+}
+
+/* Stadium Sky Lighting & Overhead Spotlights */
+.stadium-sky {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 50% 100%, rgba(192, 132, 252, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stadium-spotlight {
+  position: absolute;
+  width: 340px;
+  height: 480px;
+  pointer-events: none;
+  opacity: 0.16;
+  filter: blur(55px);
+  z-index: 1;
+}
+
+.spotlight-opponent {
+  top: -60px;
+  right: 5%;
+  background: linear-gradient(180deg, rgba(192, 132, 252, 0.8), transparent);
+  transform: rotate(20deg);
+}
+
+.spotlight-player {
+  bottom: -60px;
+  left: 5%;
+  background: linear-gradient(0deg, rgba(56, 189, 248, 0.8), transparent);
+  transform: rotate(-20deg);
+}
+
+/* 3D Stadium Field Ground with Holographic Pokéball Center Circle */
+.stadium-battle-field {
+  position: absolute;
+  bottom: -20px;
+  left: -15%;
+  width: 130%;
+  height: 72%;
+  background: radial-gradient(ellipse at 50% 80%, #17243c 0%, #0d1626 55%, transparent 85%);
+  transform: perspective(600px) rotateX(44deg);
+  border-top: 2px solid rgba(56, 189, 248, 0.35);
+  box-shadow: inset 0 20px 40px rgba(56, 189, 248, 0.12);
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stadium-field-inner {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+.field-center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px dashed rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.15), inset 0 0 25px rgba(56, 189, 248, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-hologram-pokeball {
+  opacity: 0.18;
+  filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+  transform: scale(1.1);
+}
+
+.field-center-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), rgba(192, 132, 252, 0.3), transparent);
+}
+
+/* Weather Floating Pill */
+.stadium-weather-pill {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Battle Anchors: Explicit Positions in Cyber Stadium */
+.battle-hud-anchor {
+  position: absolute;
+  z-index: 10;
+}
+
+.hud-anchor-opponent {
+  top: 18px;
+  left: 20px;
+  width: clamp(240px, 28vw, 310px);
+}
+
+.hud-anchor-player {
+  bottom: 18px;
+  right: 20px;
+  width: clamp(240px, 28vw, 310px);
+}
+
+.battle-sprite-anchor {
+  position: absolute;
+  z-index: 6;
+}
+
+.sprite-anchor-opponent {
+  top: 13%;
+  right: 12%;
+}
+
+.sprite-anchor-player {
+  bottom: 12%;
+  left: 10%;
+}
+
+/* Dais / Pedestals & Sprite Grounding */
+.pokemon-pedestal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 140px;
+}
+
+.poke-sprite-wrap {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 8px;
+}
+
+.poke-sprite-front {
+  height: clamp(85px, 14vw, 135px);
+  width: auto;
+  max-width: 160px;
+  object-fit: contain;
+  object-position: bottom center;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 10px 18px rgba(0, 0, 0, 0.7));
+  transition: transform 0.25s ease;
+  animation: pokeIdleFloat 3s ease-in-out infinite alternate;
+
+  &:hover {
+    transform: scale(1.05) translateY(-2px);
+  }
+}
+
+.poke-sprite-back {
+  height: clamp(95px, 16vw, 155px);
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  object-position: bottom center;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.75));
+  transition: transform 0.25s ease;
+  animation: pokeIdleFloat 3.2s ease-in-out infinite alternate-reverse;
+
+  &:hover {
+    transform: scale(1.05) translateY(-2px);
+  }
+}
+
+.poke-sprite-fainted {
+  filter: grayscale(1) opacity(0.3) !important;
+  transform: translateY(20px) scale(0.9) !important;
+  animation: none !important;
+}
+
+/* Attacking and Damage Hit States */
+.poke-sprite-attacking-p1 {
+  animation: pokeAttackLungeP1 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.9)) !important;
+  z-index: 10;
+}
+
+.poke-sprite-attacking-p2 {
+  animation: pokeAttackLungeP2 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  filter: drop-shadow(0 0 16px rgba(245, 158, 11, 0.9)) !important;
+  z-index: 10;
+}
+
+.poke-sprite-hit {
+  animation: pokeHitShake 0.45s ease-in-out !important;
+}
+
+/* Stadium Move Holographic Announcement Banner */
+.stadium-move-banner {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  pointer-events: none;
+  animation: bannerPopIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.move-banner-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(7, 10, 18, 0.88);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  padding: 6px 16px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.25);
+  font-size: 0.82rem;
+  color: #f8fafc;
+}
+
+.banner-p2 .move-banner-pill {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.25);
+}
+
+/* 3D Glowing Elliptical Dais Discs — Absolute Base Grounding */
+.pedestal-disc {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.pedestal-disc-opponent {
+  width: clamp(140px, 18vw, 180px);
+  height: clamp(34px, 5vw, 44px);
+  background: radial-gradient(ellipse at 50% 50%, rgba(192, 132, 252, 0.35) 0%, rgba(30, 20, 50, 0.85) 65%, transparent 100%);
+  border: 1.5px solid rgba(192, 132, 252, 0.45);
+  box-shadow: 0 0 24px rgba(192, 132, 252, 0.3), inset 0 2px 6px rgba(255, 255, 255, 0.25);
+}
+
+.pedestal-disc-player {
+  width: clamp(160px, 21vw, 220px);
+  height: clamp(40px, 6vw, 54px);
+  background: radial-gradient(ellipse at 50% 50%, rgba(56, 189, 248, 0.35) 0%, rgba(15, 30, 55, 0.85) 65%, transparent 100%);
+  border: 1.5px solid rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.35), inset 0 2px 8px rgba(255, 255, 255, 0.3);
+}

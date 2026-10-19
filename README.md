@@ -83,7 +83,7 @@ poke-showdown-ai/
 ├── src/
 │   ├── main.jsx                      # React 19 mounting root
 │   ├── App.jsx                       # Master orchestrator & battle turn loop
-│   ├── style.css                     # Cyber Dark Glassmorphism design tokens & styles
+│   ├── styles/                       # Modular SCSS design system (tokens, mixins, components)
 │   ├── pokemon/
 │   │   ├── engine.js                 # Wraps @pkmn/sim & @pkmn/randoms BattleStream
 │   │   ├── evaluator.js              # Real-time win probability & advantage evaluator

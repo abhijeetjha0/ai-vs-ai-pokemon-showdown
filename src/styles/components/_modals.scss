@@ -1,0 +1,12 @@
+/* ==========================================================================
+   COMPONENTS: MODALS & TEAMBUILDER SLOTS
+   ========================================================================== */
+
+/* Teambuilder Slot Cards */
+.teambuilder-slot-card {
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}

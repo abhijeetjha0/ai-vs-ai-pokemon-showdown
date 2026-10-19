@@ -1,0 +1,31 @@
+/* ==========================================================================
+   ABSTRACTS: MIXINS
+   ========================================================================== */
+
+@mixin glassmorphism($blur: 16px, $bg: var(--bg-card), $border: var(--border-glass)) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+}
+
+@mixin custom-scrollbars($width: 6px, $thumb-bg: rgba(255, 255, 255, 0.15), $thumb-hover: rgba(255, 255, 255, 0.3)) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $width;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $thumb-bg;
+    border-radius: 3px;
+    &:hover {
+      background: $thumb-hover;
+    }
+  }
+}
+
+@mixin cyber-glow($color, $spread: 16px, $opacity: 0.35) {
+  box-shadow: 0 0 $spread rgba($color, $opacity);
+}

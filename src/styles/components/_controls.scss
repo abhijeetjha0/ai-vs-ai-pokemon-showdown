@@ -1,0 +1,259 @@
+/* ==========================================================================
+   COMPONENTS: BATTLE CONTROLS CARD & BUTTONS
+   ========================================================================== */
+
+.controls-card {
+  position: relative;
+  z-index: 50;
+  padding: 6px 10px;
+  border-radius: var(--radius-md);
+  min-height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: nowrap !important;
+  overflow: visible;
+}
+
+/* Mode Dropdown */
+.controls-mode-select-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.controls-mode-dropdown {
+  position: relative;
+  z-index: 100;
+}
+
+.controls-mode-toggle {
+  height: 32px !important;
+  min-width: 156px !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  border: 1px solid var(--border-glass) !important;
+  border-radius: var(--radius-sm) !important;
+  color: #f8fafc !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  padding: 0 8px !important;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+
+  &:hover,
+  &:focus {
+    border-color: rgba(56, 189, 248, 0.55) !important;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.25) !important;
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: #fff !important;
+  }
+
+  .mode-toggle-icon {
+    font-size: 1.15rem !important;
+  }
+
+  .mode-toggle-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.01em;
+  }
+
+  &::after {
+    margin-left: 6px !important;
+    border-top: 0.32em solid var(--cyan-primary) !important;
+    border-right: 0.28em solid transparent !important;
+    border-bottom: 0 !important;
+    border-left: 0.28em solid transparent !important;
+    vertical-align: middle !important;
+    transition: transform 0.2s ease;
+  }
+}
+
+.controls-mode-dropdown.show .controls-mode-toggle {
+  border-color: rgba(56, 189, 248, 0.55) !important;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25) !important;
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #fff !important;
+
+  &::after {
+    transform: rotate(180deg);
+  }
+}
+
+.controls-mode-menu {
+  background: #090e1a !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 20px rgba(56, 189, 248, 0.15) !important;
+  padding: 6px !important;
+  min-width: 250px !important;
+  z-index: 9999 !important;
+  margin-top: 6px !important;
+}
+
+.controls-mode-item {
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: #cbd5e1 !important;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    color: #fff !important;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.35), rgba(56, 189, 248, 0.2)) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #fff !important;
+  }
+}
+
+/* Speed Dropdown Menu */
+.controls-speed-dropdown {
+  position: relative;
+}
+
+.controls-speed-menu {
+  background: #090e1a !important;
+  border: 1px solid rgba(56, 189, 248, 0.4) !important;
+  border-radius: var(--radius-sm) !important;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.85), 0 0 16px rgba(56, 189, 248, 0.15) !important;
+  padding: 4px !important;
+  min-width: 135px !important;
+  max-width: 150px !important;
+  z-index: 9999 !important;
+  margin-top: 6px !important;
+}
+
+.controls-speed-item {
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 0.76rem;
+  color: #cbd5e1 !important;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+
+  &:hover {
+    background: rgba(56, 189, 248, 0.15) !important;
+    color: #fff !important;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, rgba(2, 132, 199, 0.4), rgba(56, 189, 248, 0.25)) !important;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    color: #fff !important;
+    font-weight: 600;
+  }
+}
+
+/* Primary actions */
+.controls-primary-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+/* Controls Icon Buttons */
+.btn-control-icon {
+  width: 32px !important;
+  height: 32px !important;
+  min-width: 32px !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+  line-height: 1;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+
+  .material-symbols-rounded {
+    font-size: 1.15rem !important;
+    line-height: 1;
+  }
+
+  &.btn-primary-play {
+    width: 32px !important;
+    min-width: 32px !important;
+    height: 32px !important;
+    background: linear-gradient(135deg, #0284c7, #38bdf8);
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+    }
+  }
+
+  &.btn-pause-resume {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 32px !important;
+    color: #fff;
+  }
+
+  &.btn-stop {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 32px !important;
+    color: #fff;
+  }
+
+  &.btn-utility {
+    width: 28px !important;
+    min-width: 28px !important;
+    max-width: 28px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    background: rgba(0, 0, 0, 0.35);
+    color: var(--text-muted);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--border-glass-light);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.controls-secondary-actions {
+  display: flex;
+  align-items: center;
+  gap: 3px !important;
+  flex-shrink: 0;
+
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+}
+
+.btn-glow {
+  box-shadow: 0 0 16px var(--cyan-glow);
+}
+
+@media (max-width: 580px) {
+  .controls-card {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+  .controls-secondary-actions {
+    width: 100%;
+    justify-content: center !important;
+    margin-left: 0 !important;
+  }
+}

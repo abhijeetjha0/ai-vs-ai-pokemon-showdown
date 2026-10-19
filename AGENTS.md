@@ -6,11 +6,11 @@
 ## Tech Stack
 - **Language**: JavaScript (ES Modules, modern ES2022+)
 - **Frontend Framework**: React 19 (`react`, `react-dom`)
-- **UI Components & Styling**: React Bootstrap (`react-bootstrap` 2.10, `bootstrap` 5.3) & Custom CSS Design System (`src/style.css`)
+- **UI Components & Styling**: React Bootstrap (`react-bootstrap` 2.10, `bootstrap` 5.3) & Custom Modular SCSS Design System (`src/styles/`)
 - **Design Aesthetic**: Modern Cyber Dark Glassmorphism with HSL color tokens and Pokémon Type color accents
 - **Typography & Icons**: Google Fonts (`Outfit`, `JetBrains Mono`) and Google Material Symbols Rounded (`Material Symbols Rounded`)
 - **Showdown Engine**: `@pkmn/sim` (in-browser simulator), `@pkmn/randoms` (Gen 9 Random Battle teams), `@pkmn/dex`, and `@pkmn/img` (Showdown animated battle sprites)
-- **Build & Dev Tooling**: Vite 5.4 (`@vitejs/plugin-react`, `vite-plugin-node-polyfills`), Node.js built-in test runner (`node --test`)
+- **Build & Dev Tooling**: Vite 5.4 (`@vitejs/plugin-react`, `vite-plugin-node-polyfills`, `sass`), Node.js built-in test runner (`node --test`)
 
 ## Global Conventions & Guidelines
 
@@ -54,7 +54,7 @@ poke-showdown-ai/
 ├── src/
 │   ├── main.jsx             # React entry point mounting <App />
 │   ├── App.jsx              # Main application orchestrator & turn loop
-│   ├── style.css            # Dark glassmorphism design tokens & styles
+│   ├── styles/              # Modular SCSS design system (abstracts, base, layout, components, responsive)
 │   ├── components/          # React components (Controls, BattleStage, Arbiter, etc.)
 │   ├── api/                 # Model Manager, Ollama & OpenAI clients, Mock personas
 │   ├── arbiter/             # Decision engine orchestration & prompt templates

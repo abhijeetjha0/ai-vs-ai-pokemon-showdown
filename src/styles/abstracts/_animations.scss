@@ -1,0 +1,48 @@
+/* ==========================================================================
+   ABSTRACTS: KEYFRAME ANIMATIONS
+   ========================================================================== */
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pokeIdleFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+@keyframes pokeAttackLungeP1 {
+  0% { transform: translateY(0); }
+  40% { transform: translate(32px, -24px) scale(1.12); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pokeAttackLungeP2 {
+  0% { transform: translateY(0); }
+  40% { transform: translate(-32px, 24px) scale(1.12); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pokeHitShake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-8px, -4px); filter: brightness(1.7) drop-shadow(0 0 14px rgba(239, 68, 68, 0.9)); }
+  40% { transform: translate(8px, 4px); filter: brightness(1.9) drop-shadow(0 0 18px rgba(239, 68, 68, 1)); }
+  60% { transform: translate(-6px, 2px); filter: brightness(1.4); }
+  80% { transform: translate(4px, -2px); }
+}
+
+@keyframes bannerPopIn {
+  0% { opacity: 0; transform: translate(-50%, -14px) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.92); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}

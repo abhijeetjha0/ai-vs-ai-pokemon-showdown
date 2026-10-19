@@ -17,4 +17,4 @@ This directory contains all React visual and interactive components for the AI v
 ## Key Rules
 1. **NO RAW EMOJIS**: Strictly enforce Google Material Symbols Rounded (`<span className="material-symbols-rounded">name</span>`).
 2. **Action Tooltips**: All icon-only buttons must use `ActionTooltipButton` with single-word verbs (`Start`, `Pause`, `Step`, `Reset`, `Copy`, `Export`, `Settings`, `Help`).
-3. **Responsive Glassmorphism**: Use tokens from `src/style.css` (`--bg-card`, `--border-glass`, `--cyan-primary`, etc.).
+3. **Responsive Glassmorphism**: Use tokens from `src/styles/` (`--bg-card`, `--border-glass`, `--cyan-primary`, etc.).

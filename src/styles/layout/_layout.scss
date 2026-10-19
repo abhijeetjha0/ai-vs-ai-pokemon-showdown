@@ -1,0 +1,30 @@
+/* ==========================================================================
+   LAYOUT: BATTLE CONTAINER & 2-COLUMN GRID
+   ========================================================================== */
+
+.app-container {
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem 1.5rem;
+  width: 100%;
+}
+
+.battle-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(360px, 430px);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.stage-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  height: 100%;
+}
+
+.sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
