@@ -26,6 +26,6 @@ export default defineConfig({
     }
   },
   optimizeDeps: {
-    include: ['@pkmn/sim', '@pkmn/client', '@pkmn/data', '@pkmn/dex', '@pkmn/randoms', '@pkmn/img'],
+    include: ['@pkmn/sim', '@pkmn/data', '@pkmn/dex', '@pkmn/randoms', '@pkmn/img'],
   },
 });

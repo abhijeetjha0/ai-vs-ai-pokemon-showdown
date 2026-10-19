@@ -10,7 +10,6 @@
     "test": "node --test test/*.test.js"
   },
   "dependencies": {
-    "@pkmn/client": "^0.7.3",
     "@pkmn/data": "^0.10.11",
     "@pkmn/dex": "^0.10.11",
     "@pkmn/img": "^0.3.4",
