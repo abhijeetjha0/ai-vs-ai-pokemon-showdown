@@ -1,0 +1,119 @@
+[
+  {
+    "id": "battle-stage",
+    "title": "3D Perspective Battle Stage",
+    "category": "Battlefield & Visualizer",
+    "description": "The central battle stage renders Pokémon Showdown battles in full 3D perspective with official animated battle sprites (fully supporting all regional variants, alternate forms, Mega Evolutions, and Gen 9 species), HP gauges with color-transition fills, status condition badges, stat stage counters, and a 6-pokeball team health tracker.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Observe the top-right section to inspect Trainer 2's active Pokémon and remaining team Pokéballs.",
+      "2. Observe the bottom-left section to inspect Trainer 1's active Pokémon and team Pokéballs.",
+      "3. Active field conditions (Sun, Rain, Sandstorm, Snow, Electric Terrain, Grassy Terrain) appear as floating status badges at the top center of the battlefield.",
+      "4. Active move announcement banners float across the stadium indicating which Pokémon is attacking, the move used, and effectiveness (Super Effective / Resisted / Critical Hit) with synchronized lunge and hit-shake animations.",
+      "5. In Manual Mode, an interactive Action HUD appears at the bottom with move options and bench switches."
+    ]
+  },
+  {
+    "id": "advantage-bar",
+    "title": "Real-Time Advantage Bar",
+    "category": "Battlefield & Visualizer",
+    "description": "Located directly below the battle field, this dynamic bar displays live match balance and win probabilities for Trainer 1 vs Trainer 2 calculated from remaining team HP percentage, alive Pokémon counts, and active type matchups.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Check the left and right percentages to see Trainer 1 and Trainer 2 calculated win probability.",
+      "2. Read the center numerical badge (+1.5 for Trainer 1 advantage, -2.0 for Trainer 2 advantage).",
+      "3. As Pokémon take damage or faint, the advantage bar smoothly animates to reflect the shift in momentum.",
+      "4. When the battlefield orientation is flipped using the Flip button, the advantage bar automatically inverts to match the perspective of the bottom trainer."
+    ]
+  },
+  {
+    "id": "match-modes",
+    "title": "Controls Card & Match Modes",
+    "category": "Controls & Match Modes",
+    "description": "The controls card features a single-row cyberpunk glassmorphism layout with mode selection dropdown, primary battle action controls, and secondary utility icon buttons.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Open the Mode dropdown on the left to switch between 'Automated Match' (continuous AI battle) and 'Manual Mode' (interactive play).",
+      "2. In Automated Match, use the primary Play button to Start, Pause/Resume, or Stop the match loop.",
+      "3. In Manual Mode, use the glowing Step AI button to trigger a step-by-step turn execution.",
+      "4. Use the right-hand utility icon buttons to adjust Speed (turn delay), Reset the battle with fresh teams, Flip the battlefield orientation between Trainer 1 and Trainer 2, Copy the battle log to clipboard, or Export the log to a text file."
+    ]
+  },
+  {
+    "id": "player-cards",
+    "title": "Player Cards & Full Team Roster",
+    "category": "AI Models & Decision",
+    "description": "Streamlined cards for Player 1, Player 2, and Decision model display names, in-card model selection dropdowns, live turn status, and full 6-Pokémon team rosters with interactive health gauges, status conditions, and detailed moveset/item/ability tooltips.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Inspect the 6-Pokémon squad directly inside each Player card to monitor HP percentages, active field status, and fainted states in real-time.",
+      "2. Hover over any Pokémon chip to view its full types, current/max HP, ability, held item, and 4 moves.",
+      "3. Click any Pokémon chip to open the dedicated Pokémon Detail Modal for deeper statistical analysis.",
+      "4. Use the in-card model dropdown to change player AI models instantly without leaving the battle."
+    ]
+  },
+  {
+    "id": "teambuilder",
+    "title": "Custom Teambuilder & Presets",
+    "category": "Controls & Match Modes",
+    "description": "Build custom 6-Pokémon competitive teams for Trainer 1 and Trainer 2, import or export standard Showdown text formats (PokePaste compatible), or load battle-tested competitive archetypes.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Click the Edit Teams icon button in the top header to open the Teambuilder modal.",
+      "2. Switch between Trainer 1 (P1) and Trainer 2 (P2), or click 'Swap P1/P2' to swap rosters.",
+      "3. Load competitive presets: Kanto Legends, Rain Hyper Offense, Sun Power Squad, Paldea OU Titans, Trick Room Titans, or roll a fresh random team.",
+      "4. Edit species, items, abilities, Tera types, and movesets in the Visual Grid, or paste raw text in the Showdown Text tab.",
+      "5. Click 'Apply & Start Battle' to initiate simulation with your custom teams, or 'Revert to Pure Random Battles' anytime."
+    ]
+  },
+  {
+    "id": "strategy-arbiter",
+    "title": "Middle Decision Model",
+    "category": "AI Models & Decision",
+    "description": "The Decision Model acts as a supervisory Grandmaster battle coach. Native decision models (such as laya:421m-typed-decisions-mlx-fp16) leverage Ollama's high-speed structured /v1/systemone endpoint for sub-second evaluations. When active, it critiques proposed moves, identifies tactical blunders (such as attacking into type immunities or failing to switch from lethal 4x weaknesses), assigns grades, and provides commentary.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Select a decision model inside the Decision Model card in the right column.",
+      "2. When a player AI proposes an action, the Decision Model evaluates the play in milliseconds and outputs a grade (Best Move, Tactical Read, Inaccuracy, Blunder).",
+      "3. If no decision-capable models are configured, the Decision Model card automatically hides with zero broken UI."
+    ]
+  },
+  {
+    "id": "model-management",
+    "title": "Model Providers & Setup",
+    "category": "AI Models & Decision",
+    "description": "Connect to local Ollama models (with automatic CORS proxy, fast-reasoning token suppression, and native /v1/systemone decision model integration), external OpenAI-compatible endpoints, or the built-in Offline Heuristic Engine. Functional-calling, embedding, and non-chat models are automatically excluded to ensure clean turn play.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Click the Settings icon in the header to open the API drawer.",
+      "2. Select your provider: Ollama, OpenAI, or Offline.",
+      "3. For local Ollama, ensure `ollama serve` is running. Enable 'Fast Reasoning Bypass' for sub-2s responses on reasoning models like DeepSeek-R1 or Qwen 3.5 MLX.",
+      "4. Click 'Refresh Models' in the settings drawer or click the interactive refresh icon directly inside the header's Ollama provider pill to re-sync available models at any time."
+    ]
+  },
+  {
+    "id": "showdown-rules",
+    "title": "Gen 9 Random Battle Mechanics",
+    "category": "Battlefield & Visualizer",
+    "description": "The simulator executes the official Pokémon Showdown Gen 9 Random Battle format with balanced competitive move pools, abilities, items, and Terastallization mechanics.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Both trainers receive 6 randomly generated competitive Pokémon with balanced levels and moves.",
+      "2. Terastallization is available once per battle, shifting the Pokémon's defensive and offensive typing.",
+      "3. The battle ends when all 6 Pokémon on one team faint."
+    ]
+  },
+  {
+    "id": "thoughts-stream",
+    "title": "AI Thoughts Stream",
+    "category": "Controls & Match Modes",
+    "description": "The bottom-right card provides a unified, continuous AI Thoughts stream that combines AI model strategic reasoning chains, Decision Model evaluations and grades, and real-time combat events into one synchronized feed.",
+    "stepsTitle": "Steps to use",
+    "steps": [
+      "1. Inspect each thought card in the stream to see which Player acted, their streamlined move or switch action badge, and their strategic reasoning.",
+      "2. Review the Decision Model verdict box with its grade badge (Best Move, Tactical Read, Inaccuracy, Blunder) and tactical critique.",
+      "3. Real-time combat outcomes (damage percentages, effectiveness, stat boosts, faints, and weather shifts) appear chronologically in the stream alongside the thoughts.",
+      "4. The counter badge in the card header tracks total AI decisions, and the stream auto-scrolls to new turns smoothly."
+    ]
+  }
+]

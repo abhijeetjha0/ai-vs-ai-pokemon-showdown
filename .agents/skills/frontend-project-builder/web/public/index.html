@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Project Builder</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    h1 {
+      margin-bottom: 0.25rem;
+      color: #ffffff;
+    }
+    .subtitle {
+      color: #999;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+    fieldset {
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 1rem;
+      margin-bottom: 1.25rem;
+      background: #181818;
+    }
+    legend {
+      font-weight: bold;
+      padding: 0 0.5rem;
+      color: #ffffff;
+    }
+    .row {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+    }
+    .field {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #ccc;
+    }
+    input[type="text"], select {
+      padding: 0.5rem;
+      border: 1px solid #444;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      background-color: #242424;
+      color: #ffffff;
+    }
+    select:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+    input[type="text"]:focus, select:focus {
+      outline: 1px solid #3b82f6;
+      border-color: #3b82f6;
+    }
+    .checkboxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.5rem;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: normal;
+      cursor: pointer;
+      color: #ddd;
+      transition: opacity 0.2s;
+    }
+    .checkbox-label input[type="checkbox"] {
+      accent-color: #3b82f6;
+    }
+    button {
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background: #2a2a2a;
+      color: #ffffff;
+    }
+    button:hover {
+      background: #383838;
+    }
+    button.primary {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #1d4ed8;
+      font-weight: 600;
+    }
+    button.primary:hover {
+      background: #1d4ed8;
+    }
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    #prompt-section {
+      margin-top: 2rem;
+      display: none;
+    }
+    .output-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+    pre {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      max-height: 400px;
+      color: #00e676;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Frontend Project Builder</h1>
+  <p class="subtitle">Scaffold modern frontend applications by generating AI prompts.</p>
+
+  <form id="builder-form">
+    <fieldset>
+      <legend>General Settings</legend>
+      <div class="row">
+        <div class="field">
+          <label for="name">Project Name</label>
+          <input type="text" id="name" name="name" value="my-frontend-app" required>
+        </div>
+        <div class="field">
+          <label for="targetDir">Target Directory</label>
+          <input type="text" id="targetDir" name="targetDir" placeholder="Projects/my-frontend-app">
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="nodeVersion">Node.js Version</label>
+          <select id="nodeVersion" name="nodeVersion">
+            <option value="24.18.0">24.18.0 – Active LTS (Recommended)</option>
+            <option value="22.14.0">22.14.0 – Maintenance LTS</option>
+            <option value="20.18.3">20.18.3 – Maintenance/EOL</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="docs">Documentation Tool</label>
+          <select id="docs" name="docs">
+            <option value="none">None</option>
+            <option value="jsdoc">JSDoc</option>
+            <option value="typedoc">TypeDoc (Recommended for TS)</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Stack Configuration</legend>
+      <div class="row">
+        <div class="field">
+          <label for="framework">Framework</label>
+          <select id="framework" name="framework">
+            <option value="react">React</option>
+            <option value="vue">Vue</option>
+            <option value="next">Next.js</option>
+            <option value="angular">Angular</option>
+            <option value="svelte">Svelte</option>
+            <option value="ember">Ember</option>
+            <option value="vanilla">Vanilla JS/TS</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="buildTool">Build Tool</label>
+          <select id="buildTool" name="buildTool">
+            <option value="vite">Vite (Recommended)</option>
+            <option value="webpack">Webpack</option>
+            <option value="rollup">Rollup</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="styling">Styling</label>
+          <select id="styling" name="styling">
+            <option value="scss">SCSS</option>
+            <option value="tailwind">Tailwind CSS</option>
+            <option value="bootstrap">Bootstrap</option>
+            <option value="css">Plain CSS</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="testing">Testing Framework</label>
+          <select id="testing" name="testing">
+            <option value="vitest">Vitest (Recommended)</option>
+            <option value="jest">Jest</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Features &amp; Options</legend>
+      <div class="checkboxes">
+        <label class="checkbox-label">
+          <input type="checkbox" name="nvm" value="true" checked> Use .nvmrc
+        </label>
+        <label class="checkbox-label" id="ts-option">
+          <input type="checkbox" name="typescript" id="typescript" value="true" checked> TypeScript
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="lint" value="true" checked> ESLint + Prettier
+        </label>
+        <label class="checkbox-label" id="stylelint-option">
+          <input type="checkbox" name="stylelint" id="stylelint" value="true" checked> Stylelint
+        </label>
+        <label class="checkbox-label" id="babel-option">
+          <input type="checkbox" name="babel" id="babel" value="true"> Babel Transpiler
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="material" value="true" checked> Google Fonts &amp; Material Icons
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="i18n" value="true" checked> Internationalization (i18n)
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="agents" value="true"> AI Agents Context (AGENTS.md)
+        </label>
+        <label class="checkbox-label">
+          <input type="checkbox" name="install" value="true" checked> Auto Install Dependencies
+        </label>
+      </div>
+    </fieldset>
+
+    <button type="submit" id="submit-btn" class="primary">Generate AI Prompt</button>
+  </form>
+
+  <div id="prompt-section">
+    <div class="output-header">
+      <h2>Generated Prompt</h2>
+      <button type="button" id="copy-btn">Copy Prompt</button>
+    </div>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    // Build tool options per framework (based on official documentation)
+    // next, angular, ember use their own bundlers — not configurable
+    const buildToolMap = {
+      react:   [['vite', 'Vite (Recommended)'], ['webpack', 'Webpack'], ['rollup', 'Rollup']],
+      vue:     [['vite', 'Vite (Recommended)'], ['webpack', 'Webpack'], ['rollup', 'Rollup']],
+      svelte:  [['vite', 'Vite (Recommended)'], ['rollup', 'Rollup']],
+      vanilla: [['vite', 'Vite (Recommended)'], ['webpack', 'Webpack'], ['rollup', 'Rollup']],
+      next:    [['next', 'Next.js built-in (Turbopack/Webpack)']],
+      angular: [['angular', 'Angular CLI (esbuild)']],
+      ember:   [['ember', 'Ember CLI (built-in)']],
+    };
+
+    // Testing recommendations by build tool
+    const testingMap = {
+      vite:    [['vitest', 'Vitest (Recommended)'], ['jest', 'Jest'], ['none', 'None']],
+      rollup:  [['vitest', 'Vitest (Recommended)'], ['jest', 'Jest'], ['none', 'None']],
+      webpack: [['jest', 'Jest (Recommended)'], ['vitest', 'Vitest'], ['none', 'None']],
+      next:    [['jest', 'Jest (Recommended)'], ['none', 'None']],
+      angular: [['jest', 'Jest (Recommended)'], ['none', 'None']],
+      ember:   [['jest', 'Jest'], ['none', 'None']],
+    };
+
+    const frameworkEl   = document.getElementById('framework');
+    const buildToolEl   = document.getElementById('buildTool');
+    const testingEl     = document.getElementById('testing');
+    const babelEl       = document.getElementById('babel');
+    const tsEl          = document.getElementById('typescript');
+    const stylelintEl   = document.getElementById('stylelint');
+    const stylingEl     = document.getElementById('styling');
+    const docsEl        = document.getElementById('docs');
+    const babelOption   = document.getElementById('babel-option');
+    const tsOption      = document.getElementById('ts-option');
+    const stylelintOpt  = document.getElementById('stylelint-option');
+
+    function setDisabledOption(el, labelEl, disabled, title = '') {
+      el.disabled = disabled;
+      labelEl.style.opacity = disabled ? '0.45' : '1';
+      labelEl.style.cursor = disabled ? 'not-allowed' : 'pointer';
+      labelEl.title = disabled ? title : '';
+    }
+
+    function updateBuildTools() {
+      const fw = frameworkEl.value;
+      const isManagedFw = ['next', 'angular', 'ember'].includes(fw);
+      const tools = buildToolMap[fw] || buildToolMap.react;
+      const prevBuild = buildToolEl.value;
+
+      buildToolEl.innerHTML = tools.map(([v, l]) =>
+        `<option value="${v}">${l}</option>`
+      ).join('');
+
+      // Restore selection if still valid
+      if (tools.find(([v]) => v === prevBuild)) buildToolEl.value = prevBuild;
+      buildToolEl.disabled = isManagedFw;
+
+      updateTesting();
+    }
+
+    function updateTesting() {
+      const bt = buildToolEl.value;
+      const opts = testingMap[bt] || testingMap.vite;
+      const prevTest = testingEl.value;
+
+      testingEl.innerHTML = opts.map(([v, l]) =>
+        `<option value="${v}">${l}</option>`
+      ).join('');
+
+      if (opts.find(([v]) => v === prevTest)) testingEl.value = prevTest;
+    }
+
+    function updateBabel() {
+      const fw = frameworkEl.value;
+      const isManagedFw = ['next', 'angular', 'ember'].includes(fw);
+      if (isManagedFw) {
+        babelEl.checked = false;
+        setDisabledOption(babelEl, babelOption, true, 'Not applicable for ' + fw);
+      } else {
+        setDisabledOption(babelEl, babelOption, false);
+      }
+    }
+
+    function updateTypeScript() {
+      const fw = frameworkEl.value;
+      if (fw === 'angular') {
+        tsEl.checked = true;
+        setDisabledOption(tsEl, tsOption, true, 'Angular requires TypeScript');
+      } else {
+        setDisabledOption(tsEl, tsOption, false);
+      }
+      updateDocs();
+    }
+
+    function updateStylelint() {
+      const sty = stylingEl.value;
+      const applicable = sty === 'css' || sty === 'scss';
+      if (!applicable) {
+        stylelintEl.checked = false;
+        setDisabledOption(stylelintEl, stylelintOpt, true, 'Stylelint is not applicable for ' + sty);
+      } else {
+        setDisabledOption(stylelintEl, stylelintOpt, false);
+      }
+    }
+
+    function updateDocs() {
+      const isTs = tsEl.checked;
+      const prev = docsEl.value;
+      docsEl.innerHTML = [
+        ['none', 'None'],
+        ['jsdoc', 'JSDoc'],
+        ...(isTs ? [['typedoc', 'TypeDoc (Recommended for TS)']] : []),
+      ].map(([v, l]) => `<option value="${v}">${l}</option>`).join('');
+      if (docsEl.querySelector(`option[value="${prev}"]`)) docsEl.value = prev;
+    }
+
+    function updateAll() {
+      updateBuildTools();
+      updateBabel();
+      updateTypeScript();
+      updateStylelint();
+    }
+
+    // Wire up listeners
+    frameworkEl.addEventListener('change', updateAll);
+    buildToolEl.addEventListener('change', updateTesting);
+    tsEl.addEventListener('change', updateDocs);
+    stylingEl.addEventListener('change', updateStylelint);
+
+    // Initialize on load
+    updateAll();
+
+    // --- Form submission ---
+    const form        = document.getElementById('builder-form');
+    const submitBtn   = document.getElementById('submit-btn');
+    const promptSection = document.getElementById('prompt-section');
+    const output      = document.getElementById('output');
+    const copyBtn     = document.getElementById('copy-btn');
+
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText(output.textContent).then(() => {
+        const orig = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(() => copyBtn.textContent = orig, 2000);
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      const checkboxes = ['nvm', 'typescript', 'lint', 'stylelint', 'babel', 'material', 'i18n', 'agents', 'install'];
+      checkboxes.forEach(cb => {
+        data[cb] = formData.has(cb) ? 'true' : 'false';
+      });
+
+      // nodeVersion is already the full semver string from the select
+      // rename to match CLI flag
+      data['node-version'] = data.nodeVersion;
+      delete data.nodeVersion;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Generating...';
+      promptSection.style.display = 'block';
+      output.textContent = '';
+
+      try {
+        const response = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          const text = decoder.decode(value);
+          const cleanText = text.replace(/\x1b\[[0-9;]*m/g, '');
+          output.textContent += cleanText;
+          output.scrollTop = output.scrollHeight;
+        }
+      } catch (err) {
+        output.textContent += `\nError: ${err.message}`;
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Generate AI Prompt';
+      }
+    });
+  </script>
+</body>
+</html>

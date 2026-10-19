@@ -1,0 +1,13 @@
+{
+  "name": "frontend-project-builder-ui",
+  "version": "1.0.0",
+  "description": "Web UI for Frontend Project Builder skill",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
